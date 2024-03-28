@@ -1,7 +1,7 @@
 {
-  "name": "TT-deck-builder",
+  "name": "tt-deck-builder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Triple Triad est un jeu de plateau à base de cartes, inventé par SquareEnix et présent dans Final Fantasy 8.",
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js"
