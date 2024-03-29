@@ -6,6 +6,16 @@ const router = require('./app/router');
 
 const app = express();
 
+/* app.use(expressSession({
+  resave: true,
+  saveUninitialized: true,
+  secret: 'Guess it!',
+  cookie: {
+    secure: false,
+    maxAge: (1000 * 60 * 60), // ça fait une heure
+  },
+})); */
+
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 

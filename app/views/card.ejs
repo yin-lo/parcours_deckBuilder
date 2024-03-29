@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<h1><%= pageTitle %></h1>
+
+<div class="cardsContainer">
+	<div class="card">
+		<a href="#">
+			<img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration" />
+			<p class="cardName"><%= card.name %></p>
+		</a>
+		<a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
+	</div>
+
+	<div class="info">
+		<% if (!card.element) { %>
+			<p class="card-text">Élément&nbsp;: Non renseigné</p>
+		<% } else { %>
+		<p class="card-text">Élément&nbsp;: <%= card.element %> </p>
+		<%}%>
+		<p class="card-text">Level&nbsp;: <%= card.level %></p>
+		<p class="card-text">Valeur Nord&nbsp;: <%= card.value_north %></p>
+		<p class="card-text">Valeur Est&nbsp;: <%= card.value_east %></p>
+		<p class="card-text">Valeur Sud&nbsp;: <%= card.value_south %></p>
+		<p class="card-text">Valeur Ouest&nbsp;: <%= card.value_west %></p>
+	</div>
+</div>
+
+<%- include('partials/footer') %>

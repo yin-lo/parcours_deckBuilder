@@ -1,4 +1,4 @@
-<%- include('header') %>
+<%- include('partials/header') %>
 
 <h1><%= title %></h1>
 
@@ -6,7 +6,7 @@
   <% cards.forEach( (card) => { %>
 
     <div class="card">
-      <a href="#">
+      <a href="/card/<%= card.id %>">
         <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
         <p class="cardName"><%= card.name %></p>
       </a>
@@ -17,4 +17,4 @@
 </div>
 
 
-<%- include('footer') %>
+<%- include('partials/footer') %>
