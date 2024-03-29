@@ -18,6 +18,15 @@ const dataMapper = {
 		const result = await database.query(query);
 		return result.rows;
 	},
+
+  async getCardByLevel(level) {
+    const result = await database.query('SELECT * FROM card WHERE level = $1;', [level]);
+    return result.rows;
+  },
+  async getCardByName(name) {
+    const result = await database.query('SELECT * FROM card WHERE name ILIKE $1;', [`%${name}%`]);
+    return result.rows;
+  },
 };
 
 module.exports = dataMapper;

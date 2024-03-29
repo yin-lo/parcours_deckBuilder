@@ -14,6 +14,8 @@ router.get('/card/:id',mainController.cardPage);
 // page de recherche
 router.get('/search', searchController.searchPage);
 router.get('/search/element', searchController.searchByElement);
+router.get('/search/level', searchController.searchByLevel);
+router.get('/search/name', searchController.searchByName);
 
 // page de création d'un deck
 router.get('/deck', deckController.deckPage);
