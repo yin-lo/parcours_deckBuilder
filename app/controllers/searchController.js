@@ -1,13 +1,13 @@
 const dataMapper = require('../dataMapper.js');
 
 const searchController = {
-	searchPage: (req, res) => {
+	searchPage(_, res) {
 		res.render('search');
 	},
 
 	async searchByElement(req, res) {
 		try {
-			const element = req.query.element;
+			const { element } = req.query;
 
 			const cards = await dataMapper.getCardByElement(element);
 
@@ -21,9 +21,9 @@ const searchController = {
 		}
 	},
 
-  async searchByLevel(req, res) {
+	async searchByLevel(req, res) {
 		try {
-			const level = req.query.level;
+			const { level } = req.query;
 
 			const cards = await dataMapper.getCardByLevel(level);
 
@@ -37,15 +37,32 @@ const searchController = {
 		}
 	},
 
-  async searchByName(req, res) {
+	async searchByName(req, res) {
 		try {
-			const name = req.query.name;
+			const { name } = req.query;
 
 			const cards = await dataMapper.getCardByName(name);
 
 			res.render('cardList', {
 				cards,
 				title: `Résultats par noms : ${name}`,
+			});
+		} catch (error) {
+			console.error(error);
+			res.status(500).send('Erreur serveur');
+		}
+	},
+
+  async searchByValues(req, res) {
+		try {
+			const { direction } = req.query;
+      const { value } = req.query;
+
+			const cards = await dataMapper.getCardByValues(direction, value);
+
+			res.render('cardList', {
+				cards,
+				title: `Résultats par direction : ${direction}`,
 			});
 		} catch (error) {
 			console.error(error);
