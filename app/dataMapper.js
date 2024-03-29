@@ -10,6 +10,13 @@ const dataMapper = {
 		const result = await database.query('SELECT * FROM card WHERE id = $1;', [id]);
 		return result.rows[0];
 	},
+
+  async getCardByElement(element) {
+  	const result = await database.query('SELECT * FROM card WHERE element = $1;', [element]);
+    console.log(result.rows);
+		return result.rows;
+	},
+  
 };
 
 module.exports = dataMapper;

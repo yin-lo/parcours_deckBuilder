@@ -32,6 +32,7 @@ const mainController = {
 			res.status(500).send('Erreur serveur');
 		}
 	},
+
 };
 
 module.exports = mainController;
