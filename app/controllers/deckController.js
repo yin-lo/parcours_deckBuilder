@@ -4,6 +4,7 @@ const deckController = {
 	deckPage(req, res) {
 		res.render('deck', {
 			cards: req.session.deck || [],
+			title: 'Votre deck',
 		});
 	},
 
@@ -12,12 +13,18 @@ const deckController = {
 			if (!req.session.deck) {
 				req.session.deck=[];
 			}
+			const cardId = Number(req.params.id);
 
+			const checkCard = req.session.deck.find((card) => card.id === cardId);
 
-			res.render('cardList', {
-				cards,
-				title: `Construction de ton deck`,
-			});
+			if (!checkCard) {
+				const card = await dataMapper.getCard(cardId);
+				req.session.deck.push(card);
+			}
+			console.log(req.session.deck);
+
+			res.redirect('/');
+
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Erreur serveur');
