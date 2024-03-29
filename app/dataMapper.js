@@ -11,12 +11,10 @@ const dataMapper = {
 		return result.rows[0];
 	},
 
-  async getCardByElement(element) {
-  	const result = await database.query('SELECT * FROM card WHERE element = $1;', [element]);
-    console.log(result.rows);
+	async getCardByElement(element) {
+		const result = await database.query('SELECT * FROM card WHERE element = $1;', [element]);
 		return result.rows;
 	},
-  
 };
 
 module.exports = dataMapper;
