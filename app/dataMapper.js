@@ -12,7 +12,10 @@ const dataMapper = {
 	},
 
 	async getCardByElement(element) {
-		const result = await database.query('SELECT * FROM card WHERE element = $1;', [element]);
+    const query = id === 'null' ? 'SELECT * FROM card WHERE element IS NULL' : {text:'SELECT * FROM card WHERE element = $1;', 
+    values: [element],};
+
+		const result = await database.query(query);
 		return result.rows;
 	},
 };
