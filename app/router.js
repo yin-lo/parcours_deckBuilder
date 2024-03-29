@@ -14,6 +14,8 @@ router.get('/card/:id',mainController.cardPage);
 router.get('/search', searchController.searchPage);
 router.get('/search/element', searchController.searchByElement);
 
+// page de création d'un deck
+/* router.get('/deck'); */
 
 
 module.exports = router;
