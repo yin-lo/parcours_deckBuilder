@@ -11,7 +11,7 @@ const deckController = {
 	async addCard(req, res) {
 		try {
 			if (!req.session.deck) {
-				req.session.deck=[];
+				req.session.deck = [];
 			}
 			const cardId = Number(req.params.id);
 
@@ -24,7 +24,19 @@ const deckController = {
 			console.log(req.session.deck);
 
 			res.redirect('/');
+		} catch (error) {
+			console.error(error);
+			res.status(500).send('Erreur serveur');
+		}
+	},
 
+	async deleteCard(req, res) {
+		try {
+			const cardId = Number(req.params.id);
+
+			req.session.deck = req.session.deck.filter((card) => card.id !== cardId);
+			res.redirect('/deck');
+			
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Erreur serveur');
