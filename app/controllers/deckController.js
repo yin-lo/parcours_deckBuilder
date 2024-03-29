@@ -17,7 +17,9 @@ const deckController = {
 
 			const checkCard = req.session.deck.find((card) => card.id === cardId);
 
-			if (!checkCard) {
+			const countDeck = req.session.deck.length;
+
+			if (!checkCard && countDeck < 5) {
 				const card = await dataMapper.getCard(cardId);
 				req.session.deck.push(card);
 			}
@@ -36,7 +38,7 @@ const deckController = {
 
 			req.session.deck = req.session.deck.filter((card) => card.id !== cardId);
 			res.redirect('/deck');
-			
+
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Erreur serveur');
