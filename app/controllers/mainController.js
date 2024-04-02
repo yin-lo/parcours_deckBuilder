@@ -1,4 +1,4 @@
-const dataMapper = require('../dataMapper.js');
+const dataMapper = require('../models/dataMapper.js');
 
 const mainController = {
 

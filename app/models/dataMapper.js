@@ -1,4 +1,4 @@
-const database = require('./database');
+const database = require('./client');
 
 const dataMapper = {
 	async getAllCards() {

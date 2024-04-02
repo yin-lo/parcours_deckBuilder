@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
-const express = require('express');
 dotenv.config();
+const express = require('express');
+const path = require('path');
 const expressSession = require('express-session');
 
 const router = require('./app/router');
@@ -18,7 +19,9 @@ app.use(expressSession({
 }));
 
 app.set('view engine', 'ejs');
-app.set('views', 'app/views');
+// afin de ne pas avoir de personne qui font des bêtises sur les fichiers
+const viewsDirectory = path.join(__dirname, "app/views");
+app.set('views', viewsDirectory);
 
 app.use(express.static('public'));
 
