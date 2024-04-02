@@ -29,6 +29,12 @@ const mainController = {
 				card,
 				pageTitle: card.name,
 			});
+
+			//méthode pour gérer une erreur potentielle (vu avec Ronan) :
+			// if (card) {
+			// 	return res.render("card", { card: card });
+			//   }
+
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Erreur serveur');

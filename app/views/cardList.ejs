@@ -2,19 +2,22 @@
 
 <h1><%= title %></h1>
 
+<% if (locals.info) { %>
+<p><%= locals.info %></p>
+<% } %>
+
 <div class="cardsContainer">
-  <% cards.forEach( (card) => { %>
+	<% cards.forEach( (card) => { %>
 
-    <div class="card">
-      <a href="/card/<%= card.id %>">
-        <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
-        <p class="cardName"><%= card.name %></p>
-      </a>
-      <a class="link--addCard" title="Ajouter au deck" href="/deck/add/<%= card.id %>">[ + ]</a>
-    </div>
+	<div class="card">
+		<a href="/card/<%= card.id %>">
+			<img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration" />
+			<p class="cardName"><%= card.name %></p>
+		</a>
+		<a class="link--addCard" title="Ajouter au deck" href="/deck/add/<%= card.id %>">[ + ]</a>
+	</div>
 
-  <% }) %>
+	<% }) %>
 </div>
-
 
 <%- include('partials/footer') %>

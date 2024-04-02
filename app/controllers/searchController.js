@@ -53,10 +53,10 @@ const searchController = {
 		}
 	},
 
-  async searchByValues(req, res) {
+	async searchByValues(req, res) {
 		try {
 			const { direction } = req.query;
-      const { value } = req.query;
+			const { value } = req.query;
 
 			const cards = await dataMapper.getCardByValues(direction, value);
 
