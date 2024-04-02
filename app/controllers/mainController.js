@@ -3,7 +3,7 @@ const dataMapper = require('../dataMapper.js');
 const mainController = {
 
 	async homePage(_, res) {
-		try {
+		try { 
 			const cards = await dataMapper.getAllCards();
 			res.render('cardList', {
 				cards,
